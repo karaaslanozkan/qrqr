@@ -15,8 +15,12 @@ function QRscanner() {
       console.log(qrscan);
     const handleScan = data => {
         if (data) {
-            var sonuc1 = data.split("/");
-            setQrscan(sonuc1[3]);
+            var productId = data.split("/");
+            axios( "https://jsonplaceholder.typicode.com/users/" +productId[3])
+            .then((res) => setProduct(res.data))
+            .catch((e) => console.log(e))
+            .finally(() => setIsLoading(false));
+            setQrscan(product.name);
         }
     }
 
