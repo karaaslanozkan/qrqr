@@ -14,6 +14,9 @@ function QRscanner() {
     const handleScan = data => {
         
         if (data) {
+            var productId=data.split("/");
+            axios( "https://jsonplaceholder.typicode.com/users/" +productId[3])
+            .then((res) => setProduct(res.data));
             setQrscan(data);
         }
     }
@@ -25,7 +28,7 @@ function QRscanner() {
       <div>
          
             <span>QR Scanner</span>
-            
+            {product.name}
             <center>
             <div style={{marginTop:30}}>
                 <QrScan
