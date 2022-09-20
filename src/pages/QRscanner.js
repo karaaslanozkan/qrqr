@@ -32,7 +32,7 @@ function QRscanner() {
     return (
       <div>
    
-            <span>QR Scanner</span>
+            <h1>QR Scanner</h1>
             <center>
             <div>
                 <QrScan
@@ -43,11 +43,12 @@ function QRscanner() {
                 />
             </div>
             </center>
-
+            <br/><br/>
+            <br/><br/>
 {isLoading && <div>Yükleniyor..</div>}
-<br/><br/>
 
-<h1>Ürünün fiyatı : {qrscan} TL</h1>
+
+<h2>{qrscan}</h2>
       </div>
     );
   }
