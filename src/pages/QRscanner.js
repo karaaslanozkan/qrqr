@@ -19,6 +19,7 @@ function QRscanner() {
 
             if(!againScan)
            {
+            setIsLoading(true)
              var pro = data.split("/");
             axios( "https://jsonplaceholder.typicode.com/users/"+ pro[4] )
             .then((res) => setProduct(res.data))
@@ -42,7 +43,6 @@ function QRscanner() {
             <center>
             <div>
                 <QrScan
-                    delay={10}
                     onError={handleError}
                     onScan={handleScan}
                     style={{ height: 240, width: 320}}
@@ -54,7 +54,8 @@ function QRscanner() {
 <br/>
 <h2>{qrscan}</h2>
 <br/>
-{againScan && <Button onClick={()=>{setAgainScan(false)}} variant="contained" style={{background : "white", height : "40px",width : "100%"}}>Tekrar Qr Okutmak için Tıklayınız</Button>}
+{isLoading && <p>Yükleniyor</p>}
+{againScan && <Button onClick={()=>{setAgainScan(false); setQrscan('');}} variant="contained" style={{background : "white", height : "40px",width : "100%"}}>Tekrar Qr Okutmak için Tıklayınız</Button>}
 {!againScan && <p>Lütfen QR Okutunuz.</p>}
 
       </div>
