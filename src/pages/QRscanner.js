@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import QrScan from 'react-qr-reader'
 import axios from 'axios';
 function QRscanner() {
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [againScan, setAgainScan] = useState(false);
     const [product, setProduct] = useState([]);
     const [qrscan, setQrscan] = useState('');
@@ -20,8 +20,7 @@ function QRscanner() {
                     .then((res) => setProduct(res.data))
                     .catch((e) => console.log(e))
                     .finally(() => setIsLoading(false));
-                setQrscan("Ürün Fiyatı : " + product.id + " TL");
-                setAgainScan(true);
+                 setAgainScan(true);
             }
         }
     }
@@ -47,9 +46,10 @@ function QRscanner() {
             <br /><br />
             <br />
             <br />
-            <h2>{qrscan}</h2>
+            <h2></h2>
             <br />
             {isLoading && <p>Yükleniyor</p>}
+            {!isLoading && <h1>Ürün Fiyatı : {product.id}</h1>}
             {againScan && <Button
                 onClick={() => { setAgainScan(false); setQrscan(''); }}
                 variant="contained"
