@@ -16,7 +16,7 @@ function QRscanner() {
     const handleScan = data => {
         if (data) {
             var pro = data.split("/");
-            axios( "https://jsonplaceholder.typicode.com/users/1" )
+            axios( "https://jsonplaceholder.typicode.com/users/"+ pro[4] )
             .then((res) => setProduct(res.data))
             .catch((e) => console.log(e))
             .finally(() => setIsLoading(false));
