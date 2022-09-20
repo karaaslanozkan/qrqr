@@ -42,7 +42,7 @@ function QRscanner() {
             <center>
             <div>
                 <QrScan
-                    delay={300}
+                    delay={100}
                     onError={handleError}
                     onScan={handleScan}
                     style={{ height: 240, width: 320}}
@@ -51,9 +51,7 @@ function QRscanner() {
             </center>
             <br/><br/>
             <br/>
-{isLoading && <div>Yükleniyor..</div>}
 <br/>
-
 <h2>{qrscan}</h2>
 <br/>
 {againScan && <Button onClick={()=>{setAgainScan(false)}} variant="contained" style={{background : "white", height : "40px",width : "100%"}}>Tekrar Qr Okutmak için Tıklayınız</Button>}
