@@ -42,7 +42,7 @@ function QRscanner() {
             <center>
             <div>
                 <QrScan
-                    delay={100}
+                    delay={10}
                     onError={handleError}
                     onScan={handleScan}
                     style={{ height: 240, width: 320}}
