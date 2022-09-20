@@ -20,7 +20,7 @@ function QRscanner() {
             .then((res) => setProduct(res.data))
             .catch((e) => console.log(e))
             .finally(() => setIsLoading(false));
-            setQrscan(product.name);
+            setQrscan("Ürün Fiyatı"+product.name);
         }
     }
 
