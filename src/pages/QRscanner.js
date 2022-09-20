@@ -16,11 +16,11 @@ function QRscanner() {
     const handleScan = data => {
         if (data) {
             var pro = data.split("/");
-            axios( "https://jsonplaceholder.typicode.com/users/" +pro[3])
+            axios( "https://jsonplaceholder.typicode.com/users/1" )
             .then((res) => setProduct(res.data))
             .catch((e) => console.log(e))
             .finally(() => setIsLoading(false));
-            setQrscan(data);
+            setQrscan(product.name);
         }
     }
 
