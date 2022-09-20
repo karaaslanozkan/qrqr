@@ -9,7 +9,7 @@ function Home() {
         <div>
 
             <Typography style={{margin:30}} variant="h2">
-            Kartela Qr İşlemleri
+            Kartela
             </Typography>
 
             <Grid container>

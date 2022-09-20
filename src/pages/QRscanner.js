@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import {Fab, TextareaAutosize} from '@material-ui/core'
+import {Fab, TextareaAutosize,} from '@material-ui/core'
 import {ArrowBack} from '@material-ui/icons'
 import { Link } from "react-router-dom";
 import QrScan from 'react-qr-reader'
@@ -11,7 +11,7 @@ function QRscanner() {
       const [mounturl, setMounturl] = useState("");
       const [isLoading, setIsLoading] = useState(true);
       const [product, setProduct] = useState([]);   
-    const [qrscan, setQrscan] = useState('No.result.tr.23');
+    const [qrscan, setQrscan] = useState('');
 
     const handleScan = data => {
         if (data) {
@@ -20,7 +20,7 @@ function QRscanner() {
             .then((res) => setProduct(res.data))
             .catch((e) => console.log(e))
             .finally(() => setIsLoading(false));
-            setQrscan("Ürün Fiyatı"+product.name);
+            setQrscan("Ürün Fiyatı : "+product.name);
         }
     }
 
@@ -31,26 +31,23 @@ function QRscanner() {
 
     return (
       <div>
-         
+   
             <span>QR Scanner</span>
             <center>
-            <div style={{marginTop:30}}>
+            <div>
                 <QrScan
                     delay={300}
                     onError={handleError}
                     onScan={handleScan}
-                    style={{ height: 240, width: 320 }}
+                    style={{ height: 240, width: 320}}
                 />
             </div>
             </center>
 
-            <TextareaAutosize
-                style={{fontSize:18, width:320, height:100, marginTop:100}}
-                rowsMax={4}
-                defaultValue={qrscan}
-                value={qrscan}
-            />
+{isLoading && <div>Yükleniyor..</div>}
+<br/><br/>
 
+<h1>Ürünün fiyatı : {qrscan} TL</h1>
       </div>
     );
   }
