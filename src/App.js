@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 
 import Home from './pages/Home'
-import QRgen from './pages/QRgenerator'
 import QRscan from './pages/QRscanner'
 
 function App() {
@@ -21,9 +20,6 @@ function App() {
             <Switch>
               <Route exact path="/">
                 <Home/>
-              </Route>
-              <Route path="/qr_generator">
-                <QRgen/>
               </Route>
               <Route path="/qr_scanner">
                 <QRscan/>

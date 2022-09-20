@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import {Fab, TextareaAutosize} from '@material-ui/core'
-import {ArrowBack} from '@material-ui/icons'
-import { Link } from "react-router-dom";
+
 import QrScan from 'react-qr-reader'
 
 function QRscanner() {
@@ -18,11 +17,6 @@ function QRscanner() {
 
     return (
       <div>
-            <Link to="/">
-            <Fab style={{marginRight:10}} color="primary">
-                <ArrowBack/>
-            </Fab>
-            </Link>
             <span>QR Scanner</span>
             
             <center>
