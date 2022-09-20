@@ -44,8 +44,8 @@ function QRscanner() {
                 </div>
             </center>
             <br /><br />
-            <br />
-            <br />
+       
+   
             <h2></h2>
             <br />
             {isLoading && <p>Yükleniyor</p>}
