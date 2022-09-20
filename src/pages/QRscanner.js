@@ -6,20 +6,21 @@ import QrScan from 'react-qr-reader'
 import axios from 'axios';
 function QRscanner() {
     useEffect(()=>{
+    
       });
       const [mounturl, setMounturl] = useState("");
       const [isLoading, setIsLoading] = useState(true);
       const [product, setProduct] = useState([]);   
-    const [qrscan, setQrscan] = useState('No result');
+    const [qrscan, setQrscan] = useState('No.result.tr.23');
+      console.log(qrscan);
     const handleScan = data => {
-        
         if (data) {
-            var productId=data.split("/");
-            axios( "https://jsonplaceholder.typicode.com/users/" +productId[3])
-            .then((res) => setProduct(res.data));
-            setQrscan(data);
+            var sonuc1 = data.split("/");
+            setQrscan(sonuc1[3]);
         }
     }
+
+
     const handleError = err => {
     console.error(err)
     }
