@@ -6,10 +6,6 @@ import QrScan from 'react-qr-reader'
 import axios from 'axios';
 function QRscanner() {
     useEffect(()=>{
-        axios("https://jsonplaceholder.typicode.com/users/1")
-        .then((res) => setProduct(res.data))
-        .catch((e) => console.log(e))
-        .finally(() => setIsLoading(false));
       });
       const [mounturl, setMounturl] = useState("");
       const [isLoading, setIsLoading] = useState(true);
@@ -18,11 +14,7 @@ function QRscanner() {
     const handleScan = data => {
         
         if (data) {
-            var productId=data.split("/");
-            axios( "https://jsonplaceholder.typicode.com/users/" +productId[3])
-            .then((res) => setProduct(res.data))
-            .catch((e) => console.log(e))
-            .finally(() => setIsLoading(false));
+            setQrscan(data);
         }
     }
     const handleError = err => {
@@ -48,8 +40,8 @@ function QRscanner() {
             <TextareaAutosize
                 style={{fontSize:18, width:320, height:100, marginTop:100}}
                 rowsMax={4}
-                defaultValue={product.name}
-                value={product.name}
+                defaultValue={qrscan}
+                value={qrscan}
             />
 
       </div>
