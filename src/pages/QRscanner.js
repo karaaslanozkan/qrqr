@@ -8,8 +8,8 @@ function QRscanner() {
 
     const [product, setProduct] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [result, setResult] = useState("No result");
     const [mounturl, setMounturl] = useState("");
+    const [qrscan, setQrscan] = useState('No result');
     const handleScan = data => {
         
         if (data) {
@@ -17,7 +17,7 @@ function QRscanner() {
   
 
     axios( "https://jsonplaceholder.typicode.com/users/" +productId[3])
-    .then((res) => setProduct(res.data))
+    .then((res) => setQrscan(res.data))
     .catch((e) => console.log(e))
     .finally(() => setIsLoading(false));
         }
@@ -45,8 +45,8 @@ function QRscanner() {
             <TextareaAutosize
                 style={{fontSize:18, width:320, height:100, marginTop:100}}
                 rowsMax={4}
-                defaultValue={result}
-                value={product.id}
+                defaultValue={qrscan}
+                value={qrscan}
             />
 
       </div>
