@@ -12,15 +12,15 @@ function QRscanner() {
       const [isLoading, setIsLoading] = useState(true);
       const [product, setProduct] = useState([]);   
     const [qrscan, setQrscan] = useState('No.result.tr.23');
-      console.log(qrscan);
+
     const handleScan = data => {
         if (data) {
-            var productId = data.split("/");
-            axios( "https://jsonplaceholder.typicode.com/users/" +productId[3])
+            var pro = data.split("/");
+            axios( "https://jsonplaceholder.typicode.com/users/" +pro[3])
             .then((res) => setProduct(res.data))
             .catch((e) => console.log(e))
             .finally(() => setIsLoading(false));
-            setQrscan(product.name);
+            setQrscan(data);
         }
     }
 
@@ -33,7 +33,6 @@ function QRscanner() {
       <div>
          
             <span>QR Scanner</span>
-            {product.name}
             <center>
             <div style={{marginTop:30}}>
                 <QrScan
