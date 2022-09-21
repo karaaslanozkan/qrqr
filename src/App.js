@@ -22,7 +22,6 @@ function App() {
               <Route path="/:id"  children={<Params setUrl={setMounturl}/>}>
               </Route>
             </Switch>
-
           </div>
         </Router>
 
