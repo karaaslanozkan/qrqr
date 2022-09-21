@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import { Fab, TextareaAutosize, Button } from '@material-ui/core'
 import { ArrowBack } from '@material-ui/icons'
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import QrScan from 'react-qr-reader'
 import axios from 'axios';
-function QRscanner() {
+function QRscanner({mounturl}) {
     const [isLoading, setIsLoading] = useState(false);
     const [againScan, setAgainScan] = useState(false);
     const [product, setProduct] = useState([]);
     const [qrscan, setQrscan] = useState('');
+
+    if(mounturl){
+        axios("https://jsonplaceholder.typicode.com/users/"+mounturl)
+        .then((res) => setProduct(res.data))
+        .catch((e) => console.log(e))
+        .finally(() => setIsLoading(false));
+
+    }
+    
 
     const handleScan = data => {
         if (data) {
@@ -32,8 +41,7 @@ function QRscanner() {
 
     return (
         <div>
-
-            <h1>Kartela Qr Okuyucu</h1>
+  <h1>Kartela Qr Okuyucu</h1>
             <center>
                 <div>
                     <QrScan
@@ -44,12 +52,8 @@ function QRscanner() {
                 </div>
             </center>
             <br /><br />
-       
-   
-            <h2></h2>
-            <br />
             {isLoading && <p>Yükleniyor</p>}
-            {!isLoading && <h1>Ürün Fiyatı : {product.id}</h1>}
+            {!isLoading && <h1>Ürün Fiyatı : {product.id} TL</h1>}
             {againScan && <Button
                 onClick={() => { setAgainScan(false); setQrscan(''); }}
                 variant="contained"
