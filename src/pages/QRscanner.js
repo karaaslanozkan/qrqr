@@ -51,7 +51,7 @@ function QRscanner({mounturl}) {
                     />
                 </div>
             </center>
-            <br /><br />
+            <br /><br /><br /><br />
             {isLoading && <p>Yükleniyor</p>}
             {!isLoading && <h1>Ürün Fiyatı : {product.id} TL</h1>}
             {againScan && <Button
